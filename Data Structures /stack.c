@@ -1,5 +1,6 @@
 #include <stdio.h>
-//
+//Needs to be updated tis is just a trail 
+
 void push();
 void pop();
 int arra[100],trac=0;
@@ -41,11 +42,11 @@ void push()
 void pop()
 {
   if(trac==0)
-  printf("Empty stack \n");    
+      printf("Empty stack \n");    
   else
   {
-  printf("poping element %d dishum \n",arra[trac]);
-  trac--;
+      printf("poping element %d dishum \n",arra[trac]);
+      trac--;
   }
 }
 //checking array
