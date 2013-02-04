@@ -3,7 +3,7 @@
 int main()
 {
     //Insertion sort using array 
-
+    //directly converted CLRS psuddo code 
     int array[122], key,n;
     printf("Enter the required number of numbers\n");
     scanf("%d",&n);
