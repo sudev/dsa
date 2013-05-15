@@ -21,7 +21,7 @@ int main()
         int j;
         j = i-1;
 
-        while(j>-1 && array[j]>key)
+        while(j>-1 && array[j]<key)
         {
             array[j+1]=array[j];
             j--;
@@ -38,4 +38,5 @@ int main()
 
 
             
+
 
