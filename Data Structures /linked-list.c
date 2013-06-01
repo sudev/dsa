@@ -4,6 +4,8 @@ void constructor();
 void printer();
 void adder();
 void kth();
+struct node * search(int);
+void deleter(int);
 struct node{
     int value;
     struct node * next;
@@ -12,7 +14,7 @@ struct node * root;
 int main(){
     int choice=1;
     while(choice ){
-        printf("Enter a Choice:\n1.Construct a Linked list\n2.Insert a element\n3.delete a element\n4.Find the kth element from the end\n");
+        printf("Enter a Choice:\n1.Construct a Linked list\n2.Insert a element\n3.delete a element\n4.Find the kth element from the end\n5.Search element\n");
         scanf("%d",&choice);
         switch(choice){
         case 1:
@@ -23,6 +25,23 @@ int main(){
             break;
         case 4:
             kth();
+        case 5:
+            {
+            int el;
+            printf("Give me a position\n");
+            scanf("%d",&el);
+            if(search(el))
+                printf("element found\n");
+            else
+                printf("sorry try harder\n");
+            }
+        case 6:
+            {
+                int i;
+                printf("Element to delete ?");
+                scanf("%d",&i);
+                deleter(i);
+            }
         default:
             break;
         }
@@ -101,9 +120,8 @@ void kth(){
     kelem = root;
     while(runner)
     {
-       // printf("i\t%d\tk\t%d\t\n",i,k);
         if(i > k){
-            kelem = kelem->next;
+            kelem = kelem->next; //second runner 
         }
         ++i;
         printf("%d",runner->value);
@@ -112,3 +130,34 @@ void kth(){
     }
     printf("\nVlaue of the kth element is %d",kelem->value);
 }
+
+struct node * search(int k){
+    struct node * t;
+    t = root;
+    while(t){
+        if(t->value == k)
+        {
+            return t;
+            break;
+        }
+        t = t->next;
+    }
+    return NULL;
+}
+void deleter(int k ){
+    struct node * t;
+    t  = search(k);
+    if(t->next)
+    {
+    t->value = t->next->value;
+    t->next = t->next->next;
+    }
+    else
+    {
+        t = NULL;
+    }
+
+    printer();
+}
+
+
