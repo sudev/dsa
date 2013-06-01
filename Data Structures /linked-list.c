@@ -3,6 +3,7 @@
 void constructor();
 void printer();
 void adder();
+void kth();
 struct node{
     int value;
     struct node * next;
@@ -11,7 +12,7 @@ struct node * root;
 int main(){
     int choice=1;
     while(choice ){
-        printf("Enter a Choice:\n1.Construct a Linked list\n2.Insert a element\n3.delete a element\n");
+        printf("Enter a Choice:\n1.Construct a Linked list\n2.Insert a element\n3.delete a element\n4.Find the kth element from the end\n");
         scanf("%d",&choice);
         switch(choice){
         case 1:
@@ -20,6 +21,8 @@ int main(){
         case 2:
             adder();
             break;
+        case 4:
+            kth();
         default:
             break;
         }
@@ -89,9 +92,23 @@ void adder(){
 
     printer();
 }
-
-
-
-
-
-    
+void kth(){
+    int k,i=1;
+    printf("Enter a value for k :\n");
+    scanf("%d",&k);
+    struct node * runner, * kelem;
+    runner  = root;
+    kelem = root;
+    while(runner)
+    {
+       // printf("i\t%d\tk\t%d\t\n",i,k);
+        if(i > k){
+            kelem = kelem->next;
+        }
+        ++i;
+        printf("%d",runner->value);
+        runner=runner->next;
+        
+    }
+    printf("\nVlaue of the kth element is %d",kelem->value);
+}
