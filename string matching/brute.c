@@ -21,7 +21,7 @@ int brute(char * str,char * pat){
     for(i=0; i <= (strlen(str) - strlen(pat)); i++)
     {
         int j = 0;
-        while( (j  < (strlen(pat) -2)) &&( pat[j] == str[j+i]))
+        while( (j  < (strlen(pat) -1)) &&( pat[j] == str[j+i]))
         {    
             if(j == strlen(pat))
                 return i;
