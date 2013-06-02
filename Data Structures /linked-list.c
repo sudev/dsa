@@ -35,7 +35,7 @@ int main(){
             else
                 printf("sorry try harder\n");
             }
-        case 6:
+        case 3:
             {
                 int i;
                 printf("Element to delete ?");
@@ -144,6 +144,11 @@ struct node * search(int k){
     }
     return NULL;
 }
+
+/**
+ * need to rectify some issues while deleting the lsat element, with this method to 
+ * delete last element we cant use the method of overwritting with the next element
+ */
 void deleter(int k ){
     struct node * t;
     t  = search(k);
@@ -151,13 +156,15 @@ void deleter(int k ){
     {
     t->value = t->next->value;
     t->next = t->next->next;
+    free(t);
     }
     else
     {
         t = NULL;
+        free(t);
     }
 
-    printer();
+printer();
 }
 
 
