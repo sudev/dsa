@@ -1,67 +1,89 @@
+//stack using a linked list
+// basic operations push pop 
 #include <stdio.h>
-//Needs to be updated tis is just a trail 
-
-void push();
+#include <stdlib.h>
+void push(int);
 void pop();
-int arra[100],trac=0;
-void show();
+void constructor();
+void printer();
+struct stak {
+    int value;
+    struct stak * next;
+};
 
-void main()
-{
-  int choice =1;
-  while(choice)
-  {
-    printf("\n-----------------------------------\n\nEnter your choice \n1.Show\n2.POP\n3.Push\n");
-    scanf("%d",&choice);
-    switch(choice)
-     {
-     case 1:
-     show();
-     break;
-     case 2:
-     pop();
-     break;
-     case 3:
-     push();
-     break;
-     default:
-     break; 
+struct stak * tail;
+
+int main(){
+    int choice = 1;
+    while(choice){
+        printf("\n1.Constructor()\n2.Push\n3.Pop\n");
+        scanf("%d",&choice);
+        switch (choice){
+            case 1:
+                {
+                    constructor();
+                    printer();
+                    break;
+                }
+
+            case 2: 
+                {
+                    printf("\nEnter the value you want to push");
+                    int val;
+                    scanf("%d",&val);
+                    push(val);
+                    printer();
+                    break;
+                }
+
+            case 3:
+                    {
+                        pop();
+                        printer();
+                        break;
+                    }
+            default:
+                    printf("sorry I didnt code for anything of that sort");
+        }
     }
+return 0;
 }
+
+void constructor(){
+    tail = malloc(sizeof(struct stak ));
+    int val;
+    printf("Enter your your value");
+    scanf("%d",&val);
+    tail->value = val;
 }
-//push fuction 
-void push()
-{	
-  int element;
-	printf("Enter the element:\t");
-	scanf("%d",&element);
-	arra[++trac]=element;
-  printf("Element added %d\n",element);
+
+void push(int val){
+    struct stak * t;
+    t = malloc(sizeof(struct stak));
+    t->value = val;
+    t->next = tail;
+    tail = t;
 }
-//pop fuction 
-void pop()
-{
-  if(trac==0)
-      printf("Empty stack \n");    
-  else
-  {
-      printf("poping element %d dishum \n",arra[trac]);
-      trac--;
-  }
+
+void pop(){
+struct stak * t;
+t = tail;
+tail = tail->next;
+free(t);
 }
-//checking array
-void show()
-{
-  int i;
-  if(trac>0)
-    { 
-    printf("Elements = %d\t",trac);
-    for(i=trac;i>0;i--)
-      printf("%d\t",arra[i]); 
+
+void printer(){
+    printf("\n Printing the stack \n--------\n");
+    struct stak * t;
+    t =tail;
+    while(t){
+        printf("|  %d\n-------\n",t->value);
+        t = t->next;
     }
-  else
-    {
-    printf("empty stack add something\n");
-    }
+    printf("\n End of stack\n");
+
 }
+
+
+
 
