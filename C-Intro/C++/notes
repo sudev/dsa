@@ -1,0 +1,26 @@
+Default Arguments 
+
+    we can passs default arguments to a function in its function prototype 
+    say we have a function repcahar,
+    void repchar( char = '*',int = 45); //prototype
+    now you may even call the function withour arguments 
+    it works, even you can do something like this too 
+    repchar('='); //only default char variable is overiden here
+
+Variable storage scope 
+    
+    Automatic Variable      Local       //lifetime till function ends
+    Static Variable         Global      //lifetime till the program ends 
+
+
+Object and Classes
+    
+    Data Handling - Private public 
+    // Hiding data from developers not allowing them to commit honest mistakes
+    Data Members 
+    // The data inside the class 
+    Member functions
+    // The functions inside a class 
+    Constructor
+    // Function to automatically initilize stuff inside of a class
+    
