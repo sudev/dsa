@@ -16,7 +16,7 @@ bool contains(int );
 void construct();
 void preorder( node * );
 node * root = NULL;
-
+int minimum(struct node *);
 int main(){ 
     /** you can do anything with arguments like in here we have
     opted to make the arguments to const which wont allow the program to change the arguments
@@ -27,7 +27,7 @@ int main(){
     , padding the compiler may use ( ? )               **/
     int choice=1;
     while(choice){
-    printf("\n1.Insert\n3.Delete\n4.Search\n5.Preorder\n0.Exit\n");
+    printf("\n1.Insert\n3.Delete\n4.Search\n5.Preorder\n6.Maxdepth\n7.Minmum\n0.Exit\n");
     scanf("%d",&choice);
     switch(choice){
         case 1:
@@ -41,6 +41,7 @@ int main(){
         case 5:
             {
                 preorder(root);
+                break;
             }
         case 4:
             {
@@ -50,6 +51,13 @@ int main(){
                 printf("\n%d\t%s\n",s,(contains(s)) ? "true" : "false" );
                 break;
             }
+        case 6:
+        
+                printf("\nMaxdepth is %d\n",maxdepth(root));
+                break;
+        case 7:
+                printf("Mininmum Value is %d",minimum(root));
+                break;
         default:
             {
                 break;
@@ -69,11 +77,11 @@ bool contains(int value){
             return true;
         }
         else if(t->value < value){
-            t = t->l;
+            t = t->r;
         }
         else
         {
-            t = t->r;
+            t = t->l;
         }
     }
     return false;
@@ -99,11 +107,11 @@ int add(int value){
        // printf("\nparent  = %d\n",parent->value);
         if(value > temp->value)
         {
-            temp = temp->l;
+            temp = temp->r;
         }
         else
         {
-            temp = temp->r;
+            temp = temp->l;
         }
     }
     //add the element now 
@@ -111,7 +119,7 @@ int add(int value){
     if(parent->value > value){
         temp = malloc(sizeof(node));
         temp->value = value;
-        parent->r = temp;
+        parent->l = temp;
         temp->l = NULL;
         temp->r = NULL;
         printf("\nAdded succesfully to parent %d\n",parent->value);
@@ -120,7 +128,7 @@ int add(int value){
     else
     {
         temp = malloc(sizeof(node));
-        parent->l = temp;
+        parent->r = temp;
         temp->value = value;
         temp->l = NULL;
         temp->r = NULL;
@@ -168,6 +176,28 @@ void iterpreorder(node *)
     deleteStack();
 }
 */
+int maxdepth(struct node * cur ){
+if(cur == NULL )
+    {
+    return 0;
+    }
+int l = maxdepth(cur->l);
+int r = maxdepth(cur->r);
+if( l > r)
+    {
+    return (l + 1);
+    }
+else 
+    {
+    return (r + 1);
+    }
+}
 
-
-
+int minimum(struct node * cur){
+    
+    while(cur->l != NULL)
+    {
+        cur = cur->l;
+    }
+    return cur->value;
+}

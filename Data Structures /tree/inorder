@@ -1,0 +1,12 @@
+Pseudo Code 
+    
+    Inorder(node){
+        if( node == NULL)
+            return;
+        inorder(node.left);
+        printf("%d",node->value);
+        inorder(node.right);
+    }
+
+            
+
