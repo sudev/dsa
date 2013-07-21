@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 //using recusion 
-void rr(struct node **);
+
 
 
 //structure 
@@ -13,6 +13,37 @@ struct node {
     int value;
     struct node * next;
 };
+/**
+ * Recursive sort 
+ * Idea - Implemetation similar to string reversal 
+ * reverse(abcde) = reverse(bcde).a
+ */
+
+void rre(struct node **head){
+    
+    //empty list 
+    if((*head) == NULL)
+        return;
+    
+    struct node *first;
+    struct node *rest;
+    first = *head;
+    rest = first->next;
+    printf("link %d and %d\n",first->value,rest->value);
+    rre(&rest);
+    
+    //making a new backwards link
+    printf("link %d and %d\n",first->next->value,rest->value);
+    first->next->next = rest;
+    //unlink the forward one 
+    first->next = NULL;
+    
+    //head pointer
+    *head = rest;
+    printf("Head %d\n\n",rest);
+}
+
+
 
 //prototypes
 void push(struct node **,int);
@@ -27,7 +58,7 @@ int main(){
     push(&head,104);
     push(&head,105);
     printer(head);
-    rr(&head);
+    rre(&head);
     printer(head);
     return 1;
 }
@@ -56,36 +87,6 @@ void printer(struct node * temp){
         temp = temp->next;
     }
     printf("\n");
-}
-
-/**
- * Recursive sort 
- * Idea - Implemetation similar to string reversal 
- * reverse(abcde) = reverse(bcde).a
- */
-
-void rr(struct node **head){
-    
-    //empty list 
-    if((*head) == NULL)
-        return;
-    
-    struct node *first;
-    struct node *rest;
-    first = *head;
-    rest = first->next;
-    
-    rr(&rest);
-    
-    //making a new backwards link
-    printf("link %d and %d\n",first->next,rest);
-    first->next->next = rest;
-    //unlink the forward one 
-    first->next = NULL;
-    
-    //head pointer
-    *head = rest;
-    printf("Head %d\n\n",rest);
 }
 
 

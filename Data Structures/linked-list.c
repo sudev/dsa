@@ -6,6 +6,7 @@ void adder();
 void kth();
 struct node * search(int);
 void deleter(int);
+void reverseprint();
 
 //structre 
 struct node{
@@ -173,3 +174,5 @@ void deleter(int k ){
 printer();
 }
 
+void reverseprint(struct node * cur){
+    
