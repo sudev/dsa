@@ -13,7 +13,7 @@ int main(){
   return 0;
 }
 
-//bubble sort \
+//bubble sort 
 void bubble(int size)
 {
   int k,p; 
@@ -23,7 +23,9 @@ void bubble(int size)
 	{
 	  if(a[p] > a[p+1])
 	    swap(p,p+1);
+	 
 	}
+      printer(8); //check for each step understand bubble
     }
 }
 
