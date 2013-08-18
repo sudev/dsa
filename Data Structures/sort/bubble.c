@@ -1,5 +1,6 @@
 #include <stdio.h>
 //array to be sorted
+
 int a[8] = { 1, 123,14 ,112223, 1223,451,34,121};
 
 void swap(int,int);
@@ -11,7 +12,8 @@ int main(){
   printer(8);
   return 0;
 }
-//bubble sort 
+
+//bubble sort \
 void bubble(int size)
 {
   int k,p; 
