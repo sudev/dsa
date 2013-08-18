@@ -17,12 +17,19 @@
 
 #include <stdio.h>
 
-//Memo 
+//Memo required for the recursive algo to work  
 int memo[100] = {0};
+
+int fibobup(int);
+int fibo(int);
+
 int main(){
     int n;
     scanf("%d",&n);
     printf("\n%d\n",fibo(n));
+
+    printf("\n%d\n",fibobup(n));
+    
     return 0;
 }
 
@@ -37,3 +44,35 @@ int fibo(int k){
      memo[k] = (fibo(k-1) + fibo(k-2));
      return memo[k];
 }
+
+/**
+ * Bottom Up Approach 
+ *
+ * Transforming the the recursive definition into a 
+ * bottom up approach so that we can save space. 
+ *  
+ *  Exactly same computation as that of the recursive method 
+ *
+ *  Basically a topological sort of sub problem dependency DAG
+ *
+ */
+//saves results of each sub problem 
+
+int fibobup(int k){
+
+    int bup[100] = {0};
+    int i,ans;
+    for(i=1;i<(k+1);i++)
+    {
+    if ( i < 3)
+        ans = 1;
+    else
+    {
+        ans = bup[i-1] + bup[i-2];
+    }
+    bup[i] = ans;
+    }
+    return bup[k];
+}
+
+
