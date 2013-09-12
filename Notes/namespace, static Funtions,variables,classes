@@ -1,0 +1,26 @@
+Namespace 
+            http://www.studytonight.com/cpp/namespace-in-cpp.php
+
+Static keyword
+        
+        Static Variable in Functions 
+        Static Class Objects 
+        Static Member Variable in a class
+        Static Methods in a Class
+
+Static Variable inside Functions 
+    
+    The static variables hold the value of the variable through the function calls. Retains the value throught the program.
+
+Static Class Objects 
+        
+    The object will have a lifetime of that of the programs lifetime.Destructor is called at the end of programs end.
+
+Static Member Variables in class 
+    
+    Simillar to that of the static variable inside a function, the static variable insdie a Class will be retained through the objects (The variable is shared by the objects ).
+    These static variables cant be initialised by a constructor and they are to be intialised outside the class explicitly.
+
+Static Member functions 
+        
+        http://www.studytonight.com/cpp/static-keyword.php
