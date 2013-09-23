@@ -1,8 +1,0 @@
-#include <stdio.h>
-
-int main(){
-  int a[100] = { [0 ... 15] = 10, [16 ... 50] = 25, [51 ... 99 ] =0};
-  int * result;
-  //allocating the memory for array with the size equaling to soze of the array 
-  result = (int *)malloc(100*sizeof(int));  
-
