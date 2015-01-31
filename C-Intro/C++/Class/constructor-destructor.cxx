@@ -15,6 +15,7 @@ class cd{
 int main(){
     cout<<"cd s"<<endl;
     cd s;
+    //cout<<"printf";
 }
 
 
