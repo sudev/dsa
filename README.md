@@ -17,6 +17,14 @@ DSA
 | Bucket Sort    | Array          | n+k, n+k, n^2             |       |                 |
 | Radix Sort     | Array          | nk, nk, nk                |       |                 |
 
-Graphs 
+
+### Data Sturctures
+
+* Queue
+	* Methods - enqueue, dequeue, sizeof
+	* [Link](./DataStructures/python)
+
+### Graphs 
 [Link](https://github.com/sudev/dsa/tree/master/graph)
 * A graph implementation in python using Adjacency List. 
+
